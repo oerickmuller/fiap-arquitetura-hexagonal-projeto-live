@@ -1,0 +1,9 @@
+{
+   "executionEnvironments" : [
+      {
+         "root" : "live_ha"
+      }
+   ],
+   "venv" : "live_ha_3.11",
+   "venvPath" : "/home/erm/.pyenv/versions"
+}
