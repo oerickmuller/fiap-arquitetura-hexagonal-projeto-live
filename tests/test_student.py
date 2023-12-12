@@ -9,7 +9,9 @@ from services import StudentAlreadyExistentException
 
 @pytest.fixture
 def mongo_repo():
-    return repositories.MongoRepo()
+    repo = repositories.MongoRepo()
+    repo._db.get_collection('students').delete_many({})
+    return repo
 
 
 def test_create_student(mongo_repo):

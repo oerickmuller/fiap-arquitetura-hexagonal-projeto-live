@@ -21,6 +21,7 @@ class CourseService(CourseServicePort):
         course = self._repo.get_course(course_id)
         if not course:
             raise CourseNotFoundException()
+        return course
 
     def get_all_courses(self) -> List[domain.Course]:
         return self._repo.get_all_courses()
