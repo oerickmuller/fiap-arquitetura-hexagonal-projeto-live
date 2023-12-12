@@ -36,3 +36,5 @@ def test_create_same_student(mongo_repo):
 
     with pytest.raises(StudentAlreadyExistentException):
         _ = student_svc.new_student(student)
+
+    student_svc.delete_student(student)

@@ -1,12 +1,12 @@
 import domain
-import ports
+from ports.services.student import StudentServicePort
 
 
 class StudentAlreadyExistentException(BaseException):
     pass
 
 
-class StudentService(ports.StudentService):
+class StudentService(StudentServicePort):
     def __init__(self, repo):
         self._repo = repo
 

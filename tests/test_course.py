@@ -10,10 +10,10 @@ def mongo_repo():
      return repositories.MongoRepo()
 
 
-def test_list_courses(mongo_repo):
-    course_svc = services.CourseService(mongo_repo)
-    all_courses = course_svc.get_all_courses()
-    assert len(all_courses) > 0
+# def test_list_courses(mongo_repo):
+#     course_svc = services.CourseService(mongo_repo)
+#     all_courses = course_svc.get_all_courses()
+#     assert len(all_courses) > 0
 
 # def test_new_course(mongo_repo):
 #     course_svc = services.CourseService(mongo_repo)

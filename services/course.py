@@ -1,17 +1,20 @@
 from typing import List
 
 import domain
-import ports
+from ports.repositories.course import CourseRepositoryPort
+from ports.services.course import CourseServicePort
+
 
 class CourseNotFoundException(BaseException):
     pass
+
 
 class CourseAlreadyExistsException(BaseException):
     pass
 
 
-class CourseService(ports.CourseService):
-    def __init__(self, repo: ports.CourseRepository):
+class CourseService(CourseServicePort):
+    def __init__(self, repo: CourseRepositoryPort):
         self._repo = repo
 
     def get_course(self, course_id):

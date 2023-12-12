@@ -3,10 +3,12 @@ from typing import List
 import pymongo
 
 import domain
-import ports
+
+from ports.repositories.student import StudentRepositoryPort
+from ports.repositories.course import CourseRepositoryPort
 
 
-class MongoRepo(ports.CourseRepository, ports.StudentRepository):
+class MongoRepo(CourseRepositoryPort, StudentRepositoryPort):
     def __init__(self):
         self._conn = pymongo.MongoClient(
             host="localhost",
@@ -47,7 +49,7 @@ class MongoRepo(ports.CourseRepository, ports.StudentRepository):
             "age": student.age
         })
 
-    def get_student(self, student_id: str) -> domain.Student:
+    def get_student(self, student_id: str) -> domain.Student | None:
         r = self._db.get_collection("students").find_one({
             "student_id": student_id,
         })
